@@ -24,12 +24,12 @@ class CompaniesController {
             } else {
                 companyName = companyData.name
             }
+
+            res.send(companyName)
             
         } catch (error) {
             next(error)
         }
-
-        res.send(companyName)
     }
 }
 

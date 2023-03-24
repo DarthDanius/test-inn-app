@@ -30,6 +30,7 @@ class CompaniesService {
         try {
             res = await this.instance.get<string>(`/api/${inn}`)
             if (!res.data) {
+                console.log(res)
                 throw new Error('ничего не найдено')
             }
             if (typeof res.data === 'string') {

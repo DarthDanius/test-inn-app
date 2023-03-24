@@ -11,14 +11,23 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: "test"
       MONGO_INITDB_ROOT_PASSWORD: "12345"
+    networks:
+      - inn-network
 
   server:
     image: "darthdanius/test-inn-app-server:latest"
     depends_on:
       - mongodb
     build: backend/
+    restart: unless-stopped
+    networks:
+      - inn-network
     environment:
       DB_HOST: "mongodb://mongodb:27017"
+      DB_NAME: "test-inn-app"
+      DB_USER: "test"
+      DB_PASS: "12345"
+      PORT: "3000"
     ports:
       - 3000:3000
 
@@ -27,12 +36,19 @@ services:
     depends_on:
       - server
     build: frontend/
+    networks:
+      - inn-network
     environment:
       REACT_APP_SERVER_URL: "http://server:3000"
+      PORT: "80"
     ports:
       - 80:80
-    stdin_open: true
-    tty: true
+    # stdin_open: true
+    # tty: true
 
 volumes:
   "data":
+
+networks:
+  inn-network:
+    driver: bridge
