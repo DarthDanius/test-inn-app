@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "module": "commonjs",
+        "paths": {
+            "@controllers/*": [
+                "controllers/*"
+            ],
+            "@dtos/*": [
+                "dtos/*"
+            ],
+            "@exceptions/*": [
+                "exceptions/*"
+            ],
+            "@middlewares/*": [
+                "middlewares/*"
+            ],
+            "@models/*": [
+                "models/*"
+            ],
+            "@public/*": [
+                "public/*"
+            ],
+            "@routes/*": [
+                "routes/*"
+            ],
+            "@services/*": [
+                "services/*"
+            ],
+            "@views/*": [
+                "views/*"
+            ],
+            "@utilities/*": [
+                "utilities/*"
+            ]
+        }
+    }
+}
