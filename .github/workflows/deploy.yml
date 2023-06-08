@@ -26,9 +26,9 @@ jobs:
           - name: Build & Deploy template-server
             uses: docker/build-push-action@v4
             with:
-                context: ./backend
+                context: .
                 push: true
-                file: ./Dockerfile
+                file: ./backend/Dockerfile
                 tags: ${{ secrets.DOCKERHUB_USER }}/test:inn-app-server
                 secrets: |
                     ASPNETCORE_ENVIRONMENT=Release
