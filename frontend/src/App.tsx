@@ -9,7 +9,7 @@ import { getDataByINN } from '@redux/slices/companiesSlice';
 
 function App() {
   const dispatch = useAppDispatch()
-  const companyData = useAppSelector(state => state.company.companyData) as string
+  const companyData = useAppSelector(state => state.company.companyData) as string 
   
   return (
     <div className="app">
