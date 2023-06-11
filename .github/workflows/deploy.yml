@@ -6,10 +6,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Echo current dir
-            uses: echo ${{ GITHUB_WORKSPACE }}
+            run: echo ${{ GITHUB_WORKSPACE }}
             
           - name: Checkout repository
             uses: actions/checkout@v3
+            with:
+                path: backend
             
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v2
