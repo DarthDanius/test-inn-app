@@ -1,4 +1,4 @@
-name: build and deploy test server
+name: connect to server by ssh
 on: workflow_dispatch
 jobs:
     build:
