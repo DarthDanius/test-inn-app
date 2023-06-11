@@ -8,9 +8,6 @@ jobs:
           - name: Checkout repository
             uses: actions/checkout@v3
             
-          - name: Set up QEMU
-            uses: docker/setup-qemu-action@v2
-            
           - name: Set up Docker Buildx
             uses: docker/setup-buildx-action@v2
 
@@ -19,14 +16,11 @@ jobs:
             with:
                 username: ${{ secrets.DOCKERHUB_USER }}
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-          - name: Set up Docker Buildx
-            uses: docker/setup-buildx-action@v2
             
           - name: Build & Deploy template-server
             uses: docker/build-push-action@v4
             with:
-                context: .
+                context: ./backend
                 push: true
                 file: ./backend/Dockerfile
                 tags: ${{ secrets.DOCKERHUB_USER }}/test:inn-app-server
@@ -40,8 +34,7 @@ jobs:
             with:
                 host: ${{ secrets.SERVER_HOST }}
                 username: ${{ secrets.SERVER_USERNAME }}
-                key: ${{ secrets.SERVER_KEY }}
+                password: ${{ secrets.SERVER_PASSWORD }}
                 port: ${{ secrets.SERVER_PORT }}
                 script: |
-                    sudo docker pull ${{ secrets.DOCKERHUB_USER }}/test:inn-app-server
-                    sudo docker container run -p 3000:3000 -d --restart unless-stopped --name inn-app-server ${{ secrets.DOCKERHUB_USER }}/test:inn-app-server
+                  docker stop inn-app-server || true && yes | docker container prune && yes | docker image prune -a && docker pull darthdanius/test:inn-app-server && docker container run -p 3002:3000 -d --restart unless-stopped --name inn-app-server darthdanius/test:inn-app-server
