@@ -33,7 +33,7 @@ jobs:
             with:
                 context: ./backend
                 push: true
-                file: Dockerfile
+                file: ./backend/Dockerfile
                 tags: ${{ secrets.DOCKERHUB_USER }}/test:inn-app-server
                 secrets: |
                     ASPNETCORE_ENVIRONMENT=Release
