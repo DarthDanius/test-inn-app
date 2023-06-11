@@ -5,6 +5,9 @@ jobs:
         name: Build & Publish
         runs-on: ubuntu-latest
         steps:
+          - name: Echo current dir
+            run: echo ${{ github.GITHUB_WORKSPACE }}
+            
           - name: Checkout repository
             uses: actions/checkout@v3
             
