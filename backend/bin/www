@@ -48,16 +48,18 @@ var server = http.createServer(app);
  */
 
 async function start() {
+
+    // подключаемся к базе
+    await mongoose.connect(process.env.DB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        user: process.env.DB_USER,
+        pass: process.env.DB_PASS,
+        dbName: process.env.DB_NAME
+    }).catch(err => console.log(err))
+
+    // запускаем сервер
     try {
-        console.log(process.env.DB_URL)
-        console.log(process.env.DB_NAME)
-        await mongoose.connect(process.env.DB_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            user: process.env.DB_USER,
-            pass: process.env.DB_PASS,
-            dbName: process.env.DB_NAME
-        })
         server.listen(port);
         server.on('error', onError);
         server.on('listening', onListening);

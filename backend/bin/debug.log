@@ -1,30 +1,12 @@
-mongodb://host.docker.internal:27017
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at Connection.openUri (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\mongoose\lib\connection.js:694:11)
+    at D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\mongoose\lib\index.js:413:10
+    at D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\mongoose\lib\helpers\promiseOrCallback.js:41:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\mongoose\lib\helpers\promiseOrCallback.js:40:10)
+    at Mongoose._promiseOrCallback (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\mongoose\lib\index.js:1266:10)
+    at Mongoose.connect (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\mongoose\lib\index.js:412:20)
+    at start (D:\Development\OSPanel\domains\test\test-inn-app\backend\bin\www:53:20)
+    at Object.<anonymous> (D:\Development\OSPanel\domains\test\test-inn-app\backend\bin\www:73:1)
+    at Module._compile (node:internal/modules/cjs/loader:1275:14)
 server started on 3000 port
-ApiError: ИНН может состоять только из 10 или 12 цифр
-    at ApiError.BadRequest (D:\Development\OSPanel\domains\test\test-inn-app\backend\exceptions\api.exception.js:20:16)
-    at CompaniesService.validateInn (D:\Development\OSPanel\domains\test\test-inn-app\backend\services\companies.service.js:75:28)
-    at getCompanyDataByINN (D:\Development\OSPanel\domains\test\test-inn-app\backend\controllers\companies.cotroller.js:10:30)
-    at Layer.handle [as handle_request] (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\layer.js:95:5)
-    at next (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\route.js:137:13)
-    at Route.dispatch (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\route.js:112:3)
-    at Layer.handle [as handle_request] (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\layer.js:95:5)
-    at D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\index.js:281:22
-    at param (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\index.js:354:14)
-    at param (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\index.js:365:14) {
-  status: 400,
-  errors: []
-}
-ApiError: ИНН может состоять только из 10 или 12 цифр
-    at ApiError.BadRequest (D:\Development\OSPanel\domains\test\test-inn-app\backend\exceptions\api.exception.js:20:16)
-    at CompaniesService.validateInn (D:\Development\OSPanel\domains\test\test-inn-app\backend\services\companies.service.js:75:28)
-    at getCompanyDataByINN (D:\Development\OSPanel\domains\test\test-inn-app\backend\controllers\companies.cotroller.js:10:30)
-    at Layer.handle [as handle_request] (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\layer.js:95:5)
-    at next (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\route.js:137:13)
-    at Route.dispatch (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\route.js:112:3)
-    at Layer.handle [as handle_request] (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\layer.js:95:5)
-    at D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\index.js:281:22
-    at param (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\index.js:354:14)
-    at param (D:\Development\OSPanel\domains\test\test-inn-app\backend\node_modules\express\lib\router\index.js:365:14) {
-  status: 400,
-  errors: []
-}
